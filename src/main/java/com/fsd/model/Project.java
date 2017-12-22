@@ -21,7 +21,6 @@ public class Project {
 	private Date startDate;
 	private Date endDate;
 	private Integer priority;
-	@Column(name = "manager_id")
 	private Long managerId;
 	private String status;
 	
