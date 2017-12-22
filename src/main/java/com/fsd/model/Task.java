@@ -1,24 +1,35 @@
-package com.fsd.dto;
+package com.fsd.model;
 
 import java.util.Date;
 
-public class TaskDTO {
-	
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "pmtasks")
+public class Task {
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	private String taskName;	
+	private String taskName;
 	private Long projectId;
-	private Integer priority;
 	private Long parentTaskId;
 	private Long userId;
+	private Integer priority;
 	private Date startDate;
-	private Date endDate;	
+	private Date endDate;
+	private String status;
 	
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
-	}	
+	}
 	public String getTaskName() {
 		return taskName;
 	}
@@ -30,13 +41,7 @@ public class TaskDTO {
 	}
 	public void setProjectId(Long projectId) {
 		this.projectId = projectId;
-	}
-	public Integer getPriority() {
-		return priority;
-	}
-	public void setPriority(Integer priority) {
-		this.priority = priority;
-	}
+	}	
 	public Long getParentTaskId() {
 		return parentTaskId;
 	}
@@ -48,6 +53,12 @@ public class TaskDTO {
 	}
 	public void setUserId(Long userId) {
 		this.userId = userId;
+	}
+	public Integer getPriority() {
+		return priority;
+	}
+	public void setPriority(Integer priority) {
+		this.priority = priority;
 	}
 	public Date getStartDate() {
 		return startDate;
@@ -61,6 +72,10 @@ public class TaskDTO {
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
-	
-	
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}	
 }
