@@ -95,13 +95,11 @@ public class UserServiceImpl implements UserService {
 		user1.setId(1L);
 		user1.setFirstName("Test User1");
 		user1.setLastName("Lastname");
-		user1.setEmpId("10001");
-		
+				
 		UserDTO user2 = new UserDTO();
 		user2.setId(2L);
 		user2.setFirstName("Test User2");
 		user2.setLastName("Lastname");
-		user2.setEmpId("10002");
 		
 		users.add(user1);
 		users.add(user2);

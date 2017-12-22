@@ -3,8 +3,7 @@ package com.fsd.dto;
 public class UserDTO {
 	private Long id;
 	private String firstName;
-	private String lastName;
-	private String empId;
+	private String lastName;	
 	
 	public Long getId() {
 		return id;
@@ -24,11 +23,6 @@ public class UserDTO {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public String getEmpId() {
-		return empId;
-	}
-	public void setEmpId(String empId) {
-		this.empId = empId;
-	}
+	
 	
 }
