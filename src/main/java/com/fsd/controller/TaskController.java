@@ -3,6 +3,8 @@ package com.fsd.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +21,21 @@ public class TaskController {
 	@RequestMapping(value = "/api/task", method = RequestMethod.GET)
 	public List<TaskDTO> getAllTasks() {
 		return taskService.getAllTasks();
+	}
+	
+	@RequestMapping(value = "/api/task", method = RequestMethod.POST)
+	public TaskDTO addTask(@RequestBody TaskDTO task) {
+		return taskService.addTask(task);
+	}
+	
+	@RequestMapping(value = "/api/task", method = RequestMethod.PUT)
+	public TaskDTO editTask(@RequestBody TaskDTO task) {
+		return taskService.updateTask(task);
+	}
+	
+	@RequestMapping(value = "/api/task/{id}", method = RequestMethod.PUT)
+	public TaskDTO editTask(@PathVariable Long id) {
+		return taskService.endTask(id);
 	}
 
 }

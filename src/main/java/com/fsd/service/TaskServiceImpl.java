@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.fsd.dao.TaskDAO;
 import com.fsd.dto.TaskDTO;
 import com.fsd.model.Task;
+import com.fsd.util.TaskStatus;
 
 @Service
 public class TaskServiceImpl implements TaskService {
@@ -48,6 +49,16 @@ public class TaskServiceImpl implements TaskService {
 		return task;
 	}
 
+	@Override
+	public TaskDTO endTask(Long id) {
+		Task taskObj = taskDao.findOne(id);
+		if(taskObj != null) {
+			taskObj.setStatus(TaskStatus.COMPLETED.val());
+			taskDao.saveAndFlush(taskObj);
+		}
+		return null;
+	}
+	
 	@Override
 	public boolean deleteTask(Long id) {
 		// TODO Auto-generated method stub
