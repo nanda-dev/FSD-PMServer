@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fsd.dao.UserDAO;
+import com.fsd.dto.PmAPIResponseDTO;
 import com.fsd.dto.UserDTO;
 import com.fsd.model.User;
 
@@ -35,11 +36,18 @@ public class UserServiceImpl implements UserService {
 	
 
 	@Override
-	public UserDTO addUser(UserDTO newUser) {	
-		User userObj = transformUser(newUser);
-		userObj.setStatus("Y");
-		userDao.saveAndFlush(userObj);
-		return newUser;
+	public PmAPIResponseDTO addUser(UserDTO newUser) {	
+		PmAPIResponseDTO response = new PmAPIResponseDTO();
+		try {
+			User userObj = transformUser(newUser);
+			userObj.setStatus("Y");
+			userDao.saveAndFlush(userObj);
+			
+		} catch(Exception e) {
+			response.setStatus("failure");
+			response.setMessage("Error while adding user: " + e.getLocalizedMessage());
+		}
+		return response;
 	}
 	
 	@Override

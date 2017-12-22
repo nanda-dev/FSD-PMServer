@@ -4,6 +4,11 @@ public class PmAPIResponseDTO {
 	private String status;
 	private String message;
 	
+	public PmAPIResponseDTO() {
+		this.status = "success";
+		this.message = "";
+	}
+	
 	public String getStatus() {
 		return status;
 	}

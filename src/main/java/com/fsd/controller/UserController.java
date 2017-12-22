@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fsd.dto.PmAPIResponseDTO;
 import com.fsd.dto.UserDTO;
 import com.fsd.service.UserService;
 
@@ -25,7 +26,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/api/user", method = RequestMethod.POST)
-	public UserDTO addUser(@RequestBody UserDTO newUser) {		
+	public PmAPIResponseDTO addUser(@RequestBody UserDTO newUser) {		
 		return userService.addUser(newUser);
 	}
 	
