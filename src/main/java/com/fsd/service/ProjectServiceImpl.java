@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.fsd.dao.ProjectDAO;
 import com.fsd.dto.ProjectDTO;
 import com.fsd.model.Project;
+import com.fsd.util.ProjectStatus;
 
 @Service
 public class ProjectServiceImpl implements ProjectService {
@@ -42,6 +43,17 @@ public class ProjectServiceImpl implements ProjectService {
 		Project projObj = projDao.findOne(project.getId());
 		if(projObj != null) {
 			projObj = transformProject(project);
+			projDao.saveAndFlush(projObj);
+		}		
+		return project;
+	}
+	
+	@Override
+	public ProjectDTO suspendProject(Long id) {
+		ProjectDTO project = new ProjectDTO();
+		Project projObj = projDao.findOne(id);
+		if(projObj != null) {
+			projObj.setStatus(ProjectStatus.SUSPENDED.val());
 			projDao.saveAndFlush(projObj);
 		}		
 		return project;
@@ -110,5 +122,7 @@ public class ProjectServiceImpl implements ProjectService {
 		
 		return projObj;
 	}
+
+	
 
 }

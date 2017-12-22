@@ -12,6 +12,8 @@ public interface ProjectService {
 	
 	ProjectDTO updateProject(ProjectDTO project);
 	
+	ProjectDTO suspendProject(Long id);
+	
 	boolean deleteProject(Long id);
 
 }

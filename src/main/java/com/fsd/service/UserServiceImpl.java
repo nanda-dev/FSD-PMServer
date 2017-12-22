@@ -3,6 +3,8 @@ package com.fsd.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,12 +17,15 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	UserDAO userDao;
+	
+	private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
+	
 	/* (non-Javadoc)
 	 * @see com.fsd.service.UserService#getAllUsers()
 	 */
 	@Override
 	public List<UserDTO> getAllUsers() {
-		
+		LOGGER.debug("in getAllUsers...");
 		ArrayList<User> userObjs = ( ArrayList<User>) userDao.findAll();
 		
 		List<UserDTO> users = transformUsers(userObjs);
