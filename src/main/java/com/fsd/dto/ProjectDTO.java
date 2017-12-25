@@ -10,6 +10,7 @@ public class ProjectDTO {
 	private Date startDate;
 	private Date endDate;
 	private String status;
+	private Integer taskCount;
 	
 	public Long getId() {
 		return id;
@@ -52,6 +53,12 @@ public class ProjectDTO {
 	}
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	public Integer getTaskCount() {
+		return taskCount;
+	}
+	public void setTaskCount(Integer taskCount) {
+		this.taskCount = taskCount;
 	}
 	
 

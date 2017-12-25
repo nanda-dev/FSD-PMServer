@@ -5,25 +5,26 @@ import java.util.Date;
 public class TaskDTO {
 	
 	private Long id;
-	private String taskName;	
+	private String name;
 	private Long projectId;
 	private Integer priority;
 	private Long parentTaskId;
 	private Long userId;
 	private Date startDate;
-	private Date endDate;	
+	private Date endDate;
+	private String status;
 	
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
-	}	
-	public String getTaskName() {
-		return taskName;
+	}		
+	public String getName() {
+		return name;
 	}
-	public void setTaskName(String taskName) {
-		this.taskName = taskName;
+	public void setName(String name) {
+		this.name = name;
 	}
 	public Long getProjectId() {
 		return projectId;
@@ -61,6 +62,11 @@ public class TaskDTO {
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
-	
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}	
 	
 }

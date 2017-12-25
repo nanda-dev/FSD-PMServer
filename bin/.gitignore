@@ -24,4 +24,3 @@ nbdist/
 .nb-gradle/
 .mvn/wrapper/maven-wrapper.properties
 .mvn/wrapper/maven-wrapper.jar
-*.class

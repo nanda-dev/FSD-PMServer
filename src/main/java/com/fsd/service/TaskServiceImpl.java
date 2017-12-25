@@ -68,7 +68,7 @@ public class TaskServiceImpl implements TaskService {
 	private Task transformTask(TaskDTO task) {
 		Task taskObj = new Task();
 		taskObj.setId(task.getId());
-		taskObj.setTaskName(task.getTaskName());
+		taskObj.setTaskName(task.getName());
 		taskObj.setProjectId(task.getProjectId());
 		taskObj.setParentTaskId(task.getParentTaskId());
 		taskObj.setUserId(task.getUserId());
@@ -85,7 +85,7 @@ public class TaskServiceImpl implements TaskService {
 		for(Task t : taskObjs) {
 			TaskDTO task = new TaskDTO();
 			task.setId(t.getId());
-			task.setTaskName(t.getTaskName());
+			task.setName(t.getTaskName());
 			task.setProjectId(t.getProjectId());
 			task.setParentTaskId(t.getParentTaskId());
 			task.setUserId(t.getUserId());
@@ -104,7 +104,7 @@ public class TaskServiceImpl implements TaskService {
 		
 		TaskDTO task1 = new TaskDTO();
 		task1.setId(1L);
-		task1.setTaskName("Task1");
+		task1.setName("Task1");
 		task1.setProjectId(1L);
 		task1.setPriority(10);
 		task1.setParentTaskId(1L);
@@ -113,7 +113,7 @@ public class TaskServiceImpl implements TaskService {
 		
 		TaskDTO task2 = new TaskDTO();
 		task2.setId(2L);
-		task2.setTaskName("Task2");
+		task2.setName("Task2");
 		task2.setProjectId(1L);
 		task2.setPriority(20);
 		task2.setParentTaskId(1L);
