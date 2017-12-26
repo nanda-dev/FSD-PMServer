@@ -10,7 +10,7 @@ public class ProjectDTO {
 	private Date startDate;
 	private Date endDate;
 	private String status;
-	private Integer taskCount;
+	private Integer taskCount = 0;
 	
 	public Long getId() {
 		return id;

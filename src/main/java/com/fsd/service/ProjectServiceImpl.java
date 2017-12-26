@@ -77,6 +77,7 @@ public class ProjectServiceImpl implements ProjectService {
 			proj.setPriority(projObj.getPriority());
 			proj.setStartDate(projObj.getStartDate());
 			proj.setEndDate(projObj.getEndDate());
+			proj.setStatus(projObj.getStatus());
 			
 			projs.add(proj);
 		}
@@ -119,6 +120,7 @@ public class ProjectServiceImpl implements ProjectService {
 		projObj.setPriority(project.getPriority());
 		projObj.setStartDate(project.getStartDate());
 		projObj.setEndDate(project.getEndDate());
+		projObj.setStatus(project.getStatus());
 		
 		return projObj;
 	}
