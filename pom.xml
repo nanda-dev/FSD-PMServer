@@ -101,8 +101,12 @@
 		  <artifactId>slf4j-log4j12</artifactId>
 		  <version>1.6.1</version>
 		</dependency>
-				
-		
+
+
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -136,6 +140,13 @@
 		      </plugin>
 		</plugins>
 	</build>
-
-
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>javax.inject</groupId>
+				<artifactId>javax.inject</artifactId>
+				<version>1</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 </project>
