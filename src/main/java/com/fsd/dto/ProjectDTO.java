@@ -10,7 +10,7 @@ public class ProjectDTO {
 	private Date startDate;
 	private Date endDate;
 	private String status;
-	private Integer taskCount = 0;
+	private Long taskCount = 0L;
 	
 	public Long getId() {
 		return id;
@@ -53,14 +53,14 @@ public class ProjectDTO {
 	}
 	public void setStatus(String status) {
 		this.status = status;
-	}
-	public Integer getTaskCount() {
+	}	
+	
+	public Long getTaskCount() {
 		return taskCount;
 	}
-	public void setTaskCount(Integer taskCount) {
+	public void setTaskCount(Long taskCount) {
 		this.taskCount = taskCount;
 	}
-	
 	@Override
 	public String toString() {
 		return "ProjectDTO [id=" + id + ", name=" + name + ", managerId=" + managerId + ", priority=" + priority

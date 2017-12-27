@@ -17,6 +17,7 @@ import com.fsd.dto.UserDTO;
 import com.fsd.service.UserService;
 
 @RestController
+@CrossOrigin
 public class UserController {
 	
 	@Autowired
@@ -45,7 +46,7 @@ public class UserController {
 		return userService.updateUser(user);
 	}
 	
-	@RequestMapping(value = "/api/user", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/api/user/{id}", method = RequestMethod.DELETE)
 	public String deleteUser(@PathVariable Long id) {
 		LOGGER.debug("API Invoked: deleteUser");
 		String result = (userService.deleteUser(id) ? "Success" : "Failed");

@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.fsd.dao.PMQDslDAO;
 import com.fsd.dao.ProjectDAO;
 import com.fsd.dto.ProjectDTO;
 import com.fsd.model.Project;
@@ -20,6 +21,9 @@ public class ProjectServiceImpl implements ProjectService {
 	@Autowired
 	ProjectDAO projDao;
 	
+	@Autowired
+	PMQDslDAO pmDao;
+	
 	private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
 	
 	/* (non-Javadoc)
@@ -28,6 +32,9 @@ public class ProjectServiceImpl implements ProjectService {
 	@Override
 	public List<ProjectDTO> getAllProjects() {
 		List<Project> projectObjs = projDao.findAll();
+		for(Project p : projectObjs) {
+			
+		}
 		
 		List<ProjectDTO> projects = transformProjects(projectObjs);
 		
@@ -82,6 +89,8 @@ public class ProjectServiceImpl implements ProjectService {
 			proj.setStartDate(projObj.getStartDate());
 			proj.setEndDate(projObj.getEndDate());
 			proj.setStatus(projObj.getStatus());
+			
+			proj.setTaskCount(pmDao.getTaskCountForProject(projObj.getId()));
 			
 			projs.add(proj);
 		}

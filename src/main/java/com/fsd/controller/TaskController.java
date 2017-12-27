@@ -23,6 +23,11 @@ public class TaskController {
 		return taskService.getAllTasks();
 	}
 	
+	@RequestMapping(value = "/api/task/project/{id}", method = RequestMethod.GET)
+	public List<TaskDTO> getAllTasksByProject(@PathVariable Long id) {
+		return taskService.getAllTasksByProject(id);
+	}
+	
 	@RequestMapping(value = "/api/task", method = RequestMethod.POST)
 	public TaskDTO addTask(@RequestBody TaskDTO task) {
 		return taskService.addTask(task);

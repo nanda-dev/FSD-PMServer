@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.fsd.dao.PMQDslDAO;
 import com.fsd.dao.TaskDAO;
 import com.fsd.dto.TaskDTO;
 import com.fsd.model.Task;
@@ -19,6 +20,9 @@ public class TaskServiceImpl implements TaskService {
 
 	@Autowired
 	TaskDAO taskDao;
+	
+	@Autowired
+	PMQDslDAO pmDao;
 	
 	private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
 	/* (non-Javadoc)
@@ -32,6 +36,14 @@ public class TaskServiceImpl implements TaskService {
 		
 		return tasks;
 	}	
+	
+	@Override
+	public List<TaskDTO> getAllTasksByProject(Long projectId) {
+		List<Task> taskObjs = pmDao.getAllTasksByProject(projectId);
+		
+		List<TaskDTO> tasks = transformTasks(taskObjs);
+		return tasks;
+	}
 
 	@Override
 	public TaskDTO addTask(TaskDTO task) {
@@ -128,4 +140,6 @@ public class TaskServiceImpl implements TaskService {
 		
 		return tasks;
 	}
+
+	
 }

@@ -8,6 +8,8 @@ public interface TaskService {
 
 	List<TaskDTO> getAllTasks();
 	
+	List<TaskDTO> getAllTasksByProject(Long projectId);
+	
 	TaskDTO addTask(TaskDTO task);
 	
 	TaskDTO updateTask(TaskDTO task);
