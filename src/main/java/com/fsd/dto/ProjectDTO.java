@@ -61,5 +61,12 @@ public class ProjectDTO {
 		this.taskCount = taskCount;
 	}
 	
+	@Override
+	public String toString() {
+		return "ProjectDTO [id=" + id + ", name=" + name + ", managerId=" + managerId + ", priority=" + priority
+				+ ", startDate=" + startDate + ", endDate=" + endDate + ", status=" + status + ", taskCount="
+				+ taskCount + "]";
+	}
+	
 
 }

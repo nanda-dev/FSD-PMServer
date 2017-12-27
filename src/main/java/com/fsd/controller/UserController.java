@@ -2,7 +2,10 @@ package com.fsd.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,24 +22,32 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
+	private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
+	
+	@CrossOrigin
 	@RequestMapping(value = "/api/user", method = RequestMethod.GET)
 	public List<UserDTO> getAllUsers() {
-		//log.debug("getAllUsers");
+		LOGGER.debug("API Invoked: getAllUsers");
 		return userService.getAllUsers();
 	}
 	
+	@CrossOrigin
 	@RequestMapping(value = "/api/user", method = RequestMethod.POST)
 	public PmAPIResponseDTO addUser(@RequestBody UserDTO newUser) {		
+		LOGGER.debug("API Invoked: addUser");
 		return userService.addUser(newUser);
 	}
 	
+	@CrossOrigin
 	@RequestMapping(value = "/api/user", method = RequestMethod.PUT)
-	public UserDTO editUser(@RequestBody UserDTO user) {		
+	public UserDTO editUser(@RequestBody UserDTO user) {	
+		LOGGER.debug("API Invoked: editUser");
 		return userService.updateUser(user);
 	}
 	
 	@RequestMapping(value = "/api/user", method = RequestMethod.DELETE)
 	public String deleteUser(@PathVariable Long id) {
+		LOGGER.debug("API Invoked: deleteUser");
 		String result = (userService.deleteUser(id) ? "Success" : "Failed");
 		return result;
 	}

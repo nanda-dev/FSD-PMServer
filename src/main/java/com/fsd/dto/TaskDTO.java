@@ -67,6 +67,12 @@ public class TaskDTO {
 	}
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	@Override
+	public String toString() {
+		return "TaskDTO [id=" + id + ", name=" + name + ", projectId=" + projectId + ", priority=" + priority
+				+ ", parentTaskId=" + parentTaskId + ", userId=" + userId + ", startDate=" + startDate + ", endDate="
+				+ endDate + ", status=" + status + "]";
 	}	
 	
 }

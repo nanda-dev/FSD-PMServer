@@ -7,6 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.fsd.dao.UserDAO;
 import com.fsd.dto.PmAPIResponseDTO;
@@ -35,15 +37,18 @@ public class UserServiceImpl implements UserService {
 	}	
 	
 
-	@Override
+	@Override	
 	public PmAPIResponseDTO addUser(UserDTO newUser) {	
 		PmAPIResponseDTO response = new PmAPIResponseDTO();
 		try {
+			LOGGER.debug("Add User Req Data: \n" + newUser.toString());
 			User userObj = transformUser(newUser);
 			userObj.setStatus("Y");
 			userDao.saveAndFlush(userObj);
+			LOGGER.debug("Add User Finished");
 			
 		} catch(Exception e) {
+			LOGGER.debug("Add User Failed: " + e.getLocalizedMessage());
 			response.setStatus("failure");
 			response.setMessage("Error while adding user: " + e.getLocalizedMessage());
 		}
