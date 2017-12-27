@@ -7,12 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.fsd.dao.PMQDslDAO;
 import com.fsd.dao.UserDAO;
-import com.fsd.dao.UserQDslDAO;
 import com.fsd.dao.UserXDAO;
 import com.fsd.dto.PmAPIResponseDTO;
 import com.fsd.dto.UserDTO;
@@ -28,9 +24,6 @@ public class UserServiceImpl implements UserService {
 	UserXDAO usrxDao;
 	
 	@Autowired
-	UserQDslDAO userQdslDao;
-	
-	@Autowired
 	PMQDslDAO pmDao;
 	
 	private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
@@ -41,9 +34,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<UserDTO> getAllUsers() {
 		LOGGER.debug("in getAllUsers...");
+		
 		//ArrayList<User> userObjs = ( ArrayList<User>) userDao.findAll();
 		//ArrayList<User> userObjs = ( ArrayList<User>) usrxDao.findByStatus("N");
 		//ArrayList<User> userObjs = ( ArrayList<User>) userQdslDao.getAllUsersByStatus("Y");
+		
 		ArrayList<User> userObjs = ( ArrayList<User>) pmDao.getAllUsersByStatus("Y");
 		
 		List<UserDTO> users = transformUsers(userObjs);
