@@ -25,21 +25,18 @@ public class UserController {
 	
 	private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
 	
-	@CrossOrigin
 	@RequestMapping(value = "/api/user", method = RequestMethod.GET)
 	public List<UserDTO> getAllUsers() {
 		LOGGER.debug("API Invoked: getAllUsers");
 		return userService.getAllUsers();
 	}
 	
-	@CrossOrigin
 	@RequestMapping(value = "/api/user", method = RequestMethod.POST)
 	public PmAPIResponseDTO addUser(@RequestBody UserDTO newUser) {		
 		LOGGER.debug("API Invoked: addUser");
 		return userService.addUser(newUser);
 	}
 	
-	@CrossOrigin
 	@RequestMapping(value = "/api/user", method = RequestMethod.PUT)
 	public UserDTO editUser(@RequestBody UserDTO user) {	
 		LOGGER.debug("API Invoked: editUser");
