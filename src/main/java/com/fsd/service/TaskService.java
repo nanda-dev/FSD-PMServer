@@ -10,6 +10,8 @@ public interface TaskService {
 	
 	List<TaskDTO> getAllTasksByProject(Long projectId);
 	
+	TaskDTO getTaskById(Long taskId);
+	
 	TaskDTO addTask(TaskDTO task);
 	
 	TaskDTO updateTask(TaskDTO task);

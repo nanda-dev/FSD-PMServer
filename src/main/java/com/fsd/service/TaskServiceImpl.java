@@ -44,6 +44,13 @@ public class TaskServiceImpl implements TaskService {
 		List<TaskDTO> tasks = transformTasks(taskObjs);
 		return tasks;
 	}
+	
+	@Override
+	public TaskDTO getTaskById(Long taskId) {
+		Task taskObj = taskDao.findOne(taskId);
+		TaskDTO task = transformTask(taskObj);
+		return task;
+	}
 
 	@Override
 	public TaskDTO addTask(TaskDTO task) {
@@ -91,6 +98,18 @@ public class TaskServiceImpl implements TaskService {
 		taskObj.setStartDate(task.getStartDate());
 		taskObj.setEndDate(task.getEndDate());
 		return taskObj;
+	}
+	private TaskDTO transformTask(Task taskObj) {
+		TaskDTO task = new TaskDTO();
+		task.setId(taskObj.getId());
+		task.setName(taskObj.getTaskName());
+		task.setProjectId(taskObj.getProjectId());
+		task.setParentTaskId(taskObj.getParentTaskId());
+		task.setUserId(taskObj.getUserId());
+		task.setPriority(taskObj.getPriority());
+		task.setStartDate(taskObj.getStartDate());
+		task.setEndDate(taskObj.getEndDate());
+		return task;
 	}
 
 	
@@ -140,6 +159,5 @@ public class TaskServiceImpl implements TaskService {
 		
 		return tasks;
 	}
-
 	
 }
