@@ -6,7 +6,6 @@
 	<groupId>com.fsd</groupId>
 	<artifactId>PMServer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
 
 	<name>PMServer</name>
 	<description>Full Stack Dev Program - Project Manager SPA App - Backend Server</description>
